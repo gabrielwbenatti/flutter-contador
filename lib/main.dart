@@ -25,6 +25,7 @@ class FCHomePage extends StatefulWidget {
 
 class _FCHomePageState extends State<FCHomePage> {
   int _contador = 0;
+  final int _limite = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +41,42 @@ class _FCHomePageState extends State<FCHomePage> {
                   fontWeight: FontWeight.bold,
                   color: Colors.black),
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                botao('-', () {
+                  if (_contador > 0) {
+                    setState(() {
+                      _contador--;
+                    });
+                  }
+                }),
+                botao('+', () {
+                  if (_contador < _limite) {
+                    setState(() {
+                      _contador++;
+                    });
+                  }
+                })
+              ],
+            ),
           ],
         ),
       ),
     );
   }
+}
+
+Widget botao(String label, VoidCallback func) {
+  return Padding(
+    padding: const EdgeInsets.all(16.0),
+    child: ElevatedButton(
+      onPressed: func,
+      child: SizedBox(
+        child: Text(label),
+        height: 50,
+        width: 50,
+      ),
+    ),
+  );
 }
