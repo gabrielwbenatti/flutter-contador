@@ -37,9 +37,10 @@ class _FCHomePageState extends State<FCHomePage> {
             Text(
               '$_counter',
               style: const TextStyle(
-                  fontSize: 42,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.black),
+                fontSize: 42,
+                fontWeight: FontWeight.w700,
+                color: Colors.black,
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -74,9 +75,12 @@ Widget botao(String label, VoidCallback func) {
       onPressed: func,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Text(label, style: const TextStyle(
-          fontSize: 20,
-        ),),
+        child: Text(
+          label,
+          style: const TextStyle(
+            fontSize: 20,
+          ),
+        ),
       ),
     ),
   );
