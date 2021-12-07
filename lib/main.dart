@@ -24,8 +24,8 @@ class FCHomePage extends StatefulWidget {
 }
 
 class _FCHomePageState extends State<FCHomePage> {
-  int _contador = 0;
-  final int _limite = 20;
+  int _counter = 0;
+  final int _limit = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class _FCHomePageState extends State<FCHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              '$_contador',
+              '$_counter',
               style: const TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
@@ -45,16 +45,16 @@ class _FCHomePageState extends State<FCHomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 botao('-', () {
-                  if (_contador > 0) {
+                  if (_counter > 0) {
                     setState(() {
-                      _contador--;
+                      _counter--;
                     });
                   }
                 }),
                 botao('+', () {
-                  if (_contador < _limite) {
+                  if (_counter < _limit) {
                     setState(() {
-                      _contador++;
+                      _counter++;
                     });
                   }
                 })
@@ -73,7 +73,9 @@ Widget botao(String label, VoidCallback func) {
     child: ElevatedButton(
       onPressed: func,
       child: SizedBox(
-        child: Text(label),
+        child: Center(
+          child: Text(label),
+        ),
         height: 50,
         width: 50,
       ),
