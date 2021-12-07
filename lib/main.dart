@@ -24,10 +24,25 @@ class FCHomePage extends StatefulWidget {
 }
 
 class _FCHomePageState extends State<FCHomePage> {
+  int _contador = 0;
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(),
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              '$_contador',
+              style: const TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
