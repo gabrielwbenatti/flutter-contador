@@ -37,21 +37,21 @@ class _FCHomePageState extends State<FCHomePage> {
             Text(
               '$_counter',
               style: const TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 42,
+                  fontWeight: FontWeight.w700,
                   color: Colors.black),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                botao('-', () {
+                botao(' - ', () {
                   if (_counter > 0) {
                     setState(() {
                       _counter--;
                     });
                   }
                 }),
-                botao('+', () {
+                botao(' + ', () {
                   if (_counter < _limit) {
                     setState(() {
                       _counter++;
@@ -72,12 +72,11 @@ Widget botao(String label, VoidCallback func) {
     padding: const EdgeInsets.all(16.0),
     child: ElevatedButton(
       onPressed: func,
-      child: SizedBox(
-        child: Center(
-          child: Text(label),
-        ),
-        height: 50,
-        width: 50,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text(label, style: const TextStyle(
+          fontSize: 20,
+        ),),
       ),
     ),
   );
